@@ -89,6 +89,7 @@ function createTestInjector(): IInjector {
 	testInjector.register("nodeModulesDependenciesBuilder", NodeModulesDependenciesBuilder);
 	testInjector.register("settingsService", SettingsService);
 	testInjector.register("devicePathProvider", {});
+	testInjector.register("projectV4MigrationService", stubs.ProjectV4MigrationServiceStub);
 
 	return testInjector;
 }
