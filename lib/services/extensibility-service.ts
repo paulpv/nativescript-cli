@@ -74,12 +74,16 @@ export class ExtensibilityService implements IExtensibilityService {
 		return null;
 	}
 
+	public getPathToExtension(extensionName: string): string {
+		return path.join(this.pathToExtensions, constants.NODE_MODULES_FOLDER_NAME, extensionName);
+	}
+
 	@exported("extensibilityService")
 	public async loadExtension(extensionName: string): Promise<IExtensionData> {
 		try {
 			await this.assertExtensionIsInstalled(extensionName);
 
-			const pathToExtension = path.join(this.pathToExtensions, constants.NODE_MODULES_FOLDER_NAME, extensionName);
+			const pathToExtension = this.getPathToExtension(extensionName);
 			this.$requireService.require(pathToExtension);
 			return { extensionName };
 		} catch (error) {
