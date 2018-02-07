@@ -1,3 +1,9 @@
+<% if (isJekyll) { %>---
+title: NativeScript CLI
+description:  
+position: 1
+---<% } %>
+
 # NativeScript
 
 Usage | Synopsis
